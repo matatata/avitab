@@ -43,6 +43,7 @@ class DocumentsApp: public App {
 public:
     DocumentsApp(FuncsPtr appFuncs, const std::string &title, const std::string &group, const std::string &fileRegex);
     void onMouseWheel(int dir, int x, int y) override;
+    void pan(int x, int y) override;
 protected:
     void Run();
     std::string browseStartDirectory;

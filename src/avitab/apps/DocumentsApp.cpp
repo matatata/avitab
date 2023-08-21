@@ -232,6 +232,17 @@ DocumentsApp::PageInfo DocumentsApp::getActivePdfPage() {
     }
 }
 
+void DocumentsApp::pan(int x,int y)
+{
+    auto tab = getActivePdfPage();
+    if (tab) {
+        tab->stitcher->pan(tab->pixMap->getWidth() * x / 100, tab->pixMap->getHeight() * y / 100);
+    }
+
+  /*onPan(0,0 true, false);
+    onPan(-x,-y false, true);*/
+}
+
 void DocumentsApp::onPan(int x, int y, bool start, bool end) {
     PageInfo tab = getActivePdfPage();
     if (tab) {
